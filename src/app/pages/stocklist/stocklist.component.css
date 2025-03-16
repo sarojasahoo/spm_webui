@@ -8,17 +8,16 @@ mat-icon {
     padding: 0;
     cursor: pointer;
     outline: none;
-    font-size: 20px; /* Adjust icon size */
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   .delete-button:hover {
-    opacity: 0.8; /* Slight fade effect on hover */
+    opacity: 0.8;
   }
-  
-  /* Optional: Ensure the table cell has no border */
+
   td {
     border: none !important;
   }

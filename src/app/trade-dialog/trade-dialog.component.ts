@@ -19,7 +19,7 @@ interface TradeData {
 })
 export class TradeDialogComponent {
   quantity: number = 1;
-  errorMessage: string | null = null; // Store error message
+  errorMessage: string | null = null;
 
   constructor(
     public dialogRef: MatDialogRef<TradeDialogComponent>,

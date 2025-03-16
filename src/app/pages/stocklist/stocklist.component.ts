@@ -40,7 +40,7 @@ export class StocklistComponent implements OnInit {
     });
   }
 
-  // ✅ Fetch user's stock list from backend
+  // Fetch user's stock list from backend
   loadStockList(): void {
     const userId = this.auth.getLoggedInUserId();
 

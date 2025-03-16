@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .investment-details {
     display: flex;
     gap: 20px;
@@ -19,41 +19,40 @@
     gap: 12px;
     font-size: 18px;
   }
-  
+
   .valuation-icon {
-    background-color: #d9534f; /* Red for Equity Valuation */
+    background-color: #d9534f;
   }
-  
+
   .investment-icon {
-    background-color: #5bc0de; /* Blue for Equity Investment */
+    background-color: #5bc0de;
   }
-  
+
   .profit-icon {
-    background-color: #5cb85c; /* Green for Profit/Loss */
+    background-color: #5cb85c;
   }
-  
+
   .profit {
-    color: #28a745; /* Green for Profit */
+    color: #28a745;
   }
-  
+
   .loss {
-    color: #dc3545; /* Red for Loss */
+    color: #dc3545;
   }
-  
+
   .refresh-button {
     background: none;
     border: none;
     cursor: pointer;
     outline: none;
   }
-  
+
   .refresh-icon {
     font-size: 24px;
     color: #007bff;
     transition: transform 0.3s ease-in-out;
   }
-  
+
   .refresh-button:hover .refresh-icon {
     transform: rotate(180deg);
   }
-  

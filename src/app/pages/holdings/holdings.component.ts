@@ -41,7 +41,7 @@ export class HoldingsComponent implements OnInit {
     this.loadHoldings();
     this.fetchHoldingsSummaryData();
   }
-  // ✅ Fetch user's stock list from backend
+  //Fetch user's stock list from backend
   loadHoldings(): void {
     const userId = this.auth.getLoggedInUserId();
 

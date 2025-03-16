@@ -1,17 +1,15 @@
-/* Example: center the container on the page */
 .container {
     margin: 0 auto;
   }
-  
+
   .alert {
     font-size: 0.95rem;
   }
-  
+
   .form-label {
     font-weight: 500;
   }
-  
-  /* login.component.css */
+
   .box {
     padding: 1.5rem;
     border: 1px solid #ccc;

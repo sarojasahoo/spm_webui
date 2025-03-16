@@ -13,7 +13,6 @@ h2 {
     color: #333;
 }
 
-/* Success & Error Messages */
 .success-box, .error-box {
     padding: 10px;
     border-radius: 5px;
@@ -33,7 +32,6 @@ h2 {
     border-left: 4px solid #d8000c;
 }
 
-/* Form Fields */
 .form-group {
     margin-bottom: 15px;
     text-align: left;

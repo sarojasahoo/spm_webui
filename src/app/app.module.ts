@@ -47,12 +47,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatIconModule,  // <-- Import Material Icon Module
+    MatIconModule,
     MatButtonModule
   ],
-  
+
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [TradeDialogComponent] // Required for dynamically loaded dialogs
+  entryComponents: [TradeDialogComponent]
 })
 export class AppModule { }

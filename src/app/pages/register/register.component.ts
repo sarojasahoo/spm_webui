@@ -34,11 +34,11 @@ export class RegisterComponent implements OnInit {
 
     this.auth.registerUser( this.registerForm.value).subscribe({
       next: (response) => {
-        this.successMessage = "✅ User registered successfully!";
+        this.successMessage = "User registered successfully!";
         this.router.navigate(['/login']);
       },
       error: (error) => {
-        this.errorMessage = "❌ Registration failed. Please try again.";
+        this.errorMessage = "Registration failed. Please try again.";
       }
     });
   }

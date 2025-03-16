@@ -18,18 +18,6 @@ export class DashboardComponent implements OnInit {
   @ViewChild(StocklistComponent) stocklistComponent!: StocklistComponent;
   @ViewChild(HoldingsComponent) holdingsComponent!: HoldingsComponent;
 
-/*   refreshTabs() {
-    // Reload data from backend for both components
-    if (this.stocklistComponent) {
-      this.stocklistComponent.loadStockList(); // Fetch new stock data
-    }
-    if (this.holdingsComponent) {
-      this.holdingsComponent.loadHoldings(); // Fetch new holdings data
-      this.holdingsComponent.fetchHoldingsSummaryData();
-    }
-  } */
-
-
   constructor(private route :Router) {}
 
   ngOnInit() {
@@ -40,6 +28,4 @@ export class DashboardComponent implements OnInit {
     localStorage.removeItem('userId');
     this.route.navigate(['/login']);
   }
-
-
 }
