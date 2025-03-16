@@ -1,0 +1,59 @@
+.holdings-summary {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .investment-details {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .holdings-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+  }
+  
+  .valuation-icon {
+    background-color: #d9534f; /* Red for Equity Valuation */
+  }
+  
+  .investment-icon {
+    background-color: #5bc0de; /* Blue for Equity Investment */
+  }
+  
+  .profit-icon {
+    background-color: #5cb85c; /* Green for Profit/Loss */
+  }
+  
+  .profit {
+    color: #28a745; /* Green for Profit */
+  }
+  
+  .loss {
+    color: #dc3545; /* Red for Loss */
+  }
+  
+  .refresh-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .refresh-icon {
+    font-size: 24px;
+    color: #007bff;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .refresh-button:hover .refresh-icon {
+    transform: rotate(180deg);
+  }
+  

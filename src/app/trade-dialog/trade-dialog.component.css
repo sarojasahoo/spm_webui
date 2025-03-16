@@ -1,0 +1,58 @@
+::ng-deep .mat-dialog-container {
+  background: white !important;
+  color: black;
+  border-radius: 8px;
+}
+
+.full-width {
+    width: 100%;
+  }
+  mat-dialog-content {
+    min-width: 300px;
+  }
+
+  .trade-dialog-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .dialog-content {
+    margin-bottom: 20px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .cancel-btn {
+    color: #555;
+  }
+
+  .execute-btn {
+    background-color: #1976d2; /* Primary Blue */
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 8px 16px;
+  }
+
+  .execute-btn:hover {
+    background-color: #1565c0;
+  }
+  button[color="primary"] {
+    background-color: blue !important;
+    color: white !important;
+  }

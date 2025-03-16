@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="investment-details">
+
+    <div class="holdings-item">
+      <mat-icon class="icon valuation-icon">monetization_on</mat-icon>
+      <span class="label">Investment Value:</span>
+      <span class="value">{{ userDailySummary?.totalInvested | currency }}</span>
+    </div>
+
+    <!-- Equity Investment -->
+    <div class="holdings-item">
+      <mat-icon class="icon investment-icon">savings</mat-icon>
+      <span class="label">Total Portfolio:</span>
+      <span class="value">{{ userDailySummary?.portfolioEvaluation | currency }}</span>
+    </div>
+
+    <!-- Profit/Loss Percentage -->
+    <div class="holdings-item">
+      <mat-icon class="icon profit-icon">trending_up</mat-icon>
+      <span class="label">Profit/Loss %:</span>
+      <span class="value"
+            [ngClass]="{'profit': profitLossPercentage > 0, 'loss': profitLossPercentage < 0}">
+  {{ profitLossPercentage | number:'1.2-2' }}%
+</span>
+
+    </div>
+  </div>
+</div>
+<div class="table-container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Buy Price</th>
+                <th>quantity</th>
+                <th>Invested</th>
+                <th>Current Price</th>
+                <th>Profit/Loss</th>
+                <th>Buy</th>
+                <th>Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of holdings$ | async">
+                <td>{{ stock.stockSymbol }}</td>
+                <td>{{ stock.buyPrice }}</td>
+                <td>{{ stock.quantity }}</td>
+                <td>{{ stock.totalValue }}</td>
+                <td>{{ stock.currentPrice }}</td>
+                <td>{{ stock.profitLoss }}</td>
+                <td>
+                    <button class="buy-btn" (click)="openTradeDialog(stock, 'buy')">
+                        <svg class="buy-icon" width="26" height="26" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="green" />
+                            <path d="M12 7v10M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </td>
+                <td>
+                    <button class="sell-btn" (click)="openTradeDialog(stock, 'sell')">
+                        <svg class="sell-icon" width="26" height="26" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="red" />
+                            <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

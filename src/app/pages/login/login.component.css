@@ -1,0 +1,20 @@
+/* Example: center the container on the page */
+.container {
+    margin: 0 auto;
+  }
+  
+  .alert {
+    font-size: 0.95rem;
+  }
+  
+  .form-label {
+    font-weight: 500;
+  }
+  
+  /* login.component.css */
+  .box {
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }

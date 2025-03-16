@@ -1,0 +1,43 @@
+
+
+  button {
+    border: none;
+    outline: none;
+  }
+
+  mat-icon {
+    font-size: 20px; /* Adjust icon size */
+  }
+
+  .logout-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .power-icon {
+    font-size: 24px;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .logout-button:hover .power-icon {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+
+  .header-container {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    height: 40px;
+    gap: 5px;
+  }
+
+
+  .welcome-text {
+    font-size: 24px; /* Set font size to 24px */
+    font-weight: bold;
+  }

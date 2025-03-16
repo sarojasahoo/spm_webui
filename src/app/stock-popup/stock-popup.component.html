@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{ stock.error ? 'Error' : 'Stock Details' }}</h2>
+<div mat-dialog-content>
+  <p *ngIf="stock.error" class="error-text">{{ stock.error.error.errorMessage }}</p>
+  <ng-container *ngIf="!stock.error">
+    <p><strong>Symbol:</strong> {{ stock.stockSymbol }}</p>
+    <p><strong>Open:</strong> ${{ stock.openPrice }}</p>
+    <p><strong>High:</strong> ${{ stock.highPrice }}</p>
+    <p><strong>Low:</strong> ${{ stock.lowPrice }}</p>
+    <p><strong>Price:</strong> ${{ stock.currentPrice }}</p>
+    <!-- Additional stock details as needed -->
+  </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="close()">Close</button>
+  <!-- Only show additional actions if there's no error -->
+  <button *ngIf="!stock.error" mat-button color="primary" (click)="addToStockList()">Add to List</button>
+</div>

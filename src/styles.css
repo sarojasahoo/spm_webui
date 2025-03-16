@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-tab-group {
+    background-color: #f5f5f5 !important;
+}
+
+.mat-tab-label-active {
+    background-color: #1976d2 !important;
+    color: white !important;
+    border-radius: 5px;
+}
+
+.mat-tab-label {
+    background-color: #e0e0e0 !important;
+    color: black !important;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.mat-tab-label:hover {
+    background-color: #1565c0 !important;
+    color: white !important;
+}
+
+.sell-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sell-icon {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .sell-btn:hover .sell-icon {
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+
+  .buy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .buy-icon {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .buy-btn:hover .buy-icon {
+    transform: scale(1.1); /* Slight zoom effect */
+  }

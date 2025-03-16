@@ -1,0 +1,24 @@
+mat-icon {
+    font-size: 24px;
+  }
+
+  .delete-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px; /* Adjust icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .delete-button:hover {
+    opacity: 0.8; /* Slight fade effect on hover */
+  }
+  
+  /* Optional: Ensure the table cell has no border */
+  td {
+    border: none !important;
+  }

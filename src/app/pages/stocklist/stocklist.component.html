@@ -1,0 +1,66 @@
+
+    <!-- Summary Section: All in One Row -->
+    <div class="search-section">
+        <!-- Left Section (Fancy Heading or Summary) -->
+        <div class="search-left">
+            <h3>Stock Lookup</h3>
+        </div>
+
+        <!-- Right Section (Fancy Search Bar) -->
+        <div class="search-right">
+            <form [formGroup]="searchForm" class="search-box">
+                <input type="text" formControlName="stockSymbol" placeholder=" Search Scrips " />
+                <button type="button" class="search-btn" (click)="onSearch()">🔍</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Price</th>
+                    <th>Buy</th>
+                    <th>Sell</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stock of stockList$ | async">
+                    <td>{{ stock.stockSymbol }}</td>
+                    <td>{{ stock.openPrice }}</td>
+                    <td>{{ stock.highPrice }}</td>
+                    <td>{{ stock.lowPrice }}</td>
+                    <td>{{ stock.currentPrice }}</td>
+                    <td>
+                        <button class="buy-btn" (click)="openTradeDialog(stock, 'buy')">
+                            <svg class="buy-icon" width="26" height="26" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="green" />
+                                <path d="M12 7v10M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </td>
+                    <td>
+                       <button class="sell-btn" (click)="openTradeDialog(stock, 'sell')">
+                            <svg class="sell-icon" width="26" height="26" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="red" />
+                                <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="delete-button" (click)="removeFromStockList(stock.stockSymbol)">
+                            🗑️
+                          </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>

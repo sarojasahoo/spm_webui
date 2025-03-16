@@ -1,0 +1,23 @@
+<div class="header-container flex items-center justify-between px-3 py-2" xmlns="http://www.w3.org/1999/html">
+  <mat-icon class="power-icon">home </mat-icon>  Welcome , {{ userId }}
+
+    <button (click)="logout()" mat-icon-button class="power-icon">
+        <mat-icon class="power-icon">logout</mat-icon>
+      </button>
+  </div>
+  <div class="p-1">
+    <mat-tab-group class="custom-tab-group">
+        <mat-tab label="Symbols List">
+            <app-stocklist></app-stocklist>
+        </mat-tab>
+        <mat-tab label="Holdings">
+            <app-holdings></app-holdings>
+        </mat-tab>
+
+
+    </mat-tab-group>
+
+    <!-- Tab Content -->
+
+
+</div>

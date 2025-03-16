@@ -1,0 +1,49 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="mb-4">Login</h2>
+
+  <div class="box">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Email/Username field -->
+    <div class="mb-3">
+      <label for="userId" class="form-label">UserId</label>
+      <input
+        type="text"
+        id="userId"
+        class="form-control"
+        formControlName="userId"
+        placeholder="Enter your userId"
+      />
+      <!-- Validation error message -->
+      <div *ngIf="loginForm.get('userId')?.touched && loginForm.get('userId')?.invalid" class="text-danger mt-1">
+        UserId is required
+      </div>
+    </div>
+
+    <!-- Password field -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <!-- Validation error message -->
+      <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger mt-1">
+        Password is required
+      </div>
+    </div>
+
+    <!-- Register User -->
+    <div class="mb-3">
+      <a routerLink="/register" class="link-primary">Register New User</a>
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-primary me-2" [disabled]="loginForm.invalid">Login</button>
+    <a href="#" class="btn btn-secondary">Back</a>
+  </form>
+
+  </div>
+</div>

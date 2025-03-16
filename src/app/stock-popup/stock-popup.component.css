@@ -1,0 +1,30 @@
+.error-text {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  ::ng-deep .mat-dialog-container {
+    background: white !important;
+    color: black;
+    border-radius: 8px;
+  }
+  .cancel-btn {
+      color: #555;
+    }
+
+    .execute-btn {
+      background-color: #1976d2; /* Primary Blue */
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 8px 16px;
+    }
+
+    .execute-btn:hover {
+      background-color: #1565c0;
+    }
+button[color="primary"] {
+    background-color: blue !important;
+    color: white !important;
+  }
