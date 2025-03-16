@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { StockService } from 'src/app/services/stock.service';
-//import { Stock } from 'src/app/models/stock.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
