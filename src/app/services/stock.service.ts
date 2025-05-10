@@ -38,8 +38,9 @@ export class StockService {
   }
 
   // Remove stock from user's stock list
-  removeStockFromList(stockId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${stockId}`, { headers: this.getAuthHeaders() });
+  removeStockFromList(stockId: string): Observable<any> {
+    const userId = localStorage.getItem('userId');
+    return this.http.delete(`${this.baseUrl}/${stockId}/${userId}`, { headers: this.getAuthHeaders() });
   }
 
   // get user holdings

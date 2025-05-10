@@ -34,18 +34,22 @@ export class LoginComponent {
     localStorage.setItem('userId', this.loginForm.get('userId')?.value);
 
      this.authService.login(credentials).subscribe({
-      next: token => {
-        if (token) {
-          this.authService.saveToken(token.trim());
-          this.authService.saveUserId(credentials.userId.trim());
+      next: tokenDto => {
+        if (tokenDto) {
+          this.authService.saveToken(tokenDto.access_token.trim());
+          this.authService.saveUserId(tokenDto.userId.trim());
+          this.authService.saveUserName(tokenDto.userName.trim());
           this.router.navigate(['/dashboard']);
+
         } else {
           console.error('Token is null or undefined');
         }
       },
-      error: err => {
-        this.errorMessage = 'Invalid credentials!';
-        console.error(err);
+      error: error => {
+        if (error.status === 401) {
+          const errorData = error.error;
+          alert(`Login Failed: ${errorData.errorMessage}`);
+        }
       }
       });
   }

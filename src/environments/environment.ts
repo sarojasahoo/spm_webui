@@ -1,5 +1,5 @@
 
-const baseUrl = 'http://192.168.0.202:8080/api';
+const baseUrl = 'http://localhost:8080/api';
 
 export const environment = {
   production: false,

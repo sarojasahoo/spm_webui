@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders,HttpErrorResponse } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { TokenDto } from 'src/app/model/token.dto';
 
 export interface LoginPayload {
   userId: string;
@@ -26,18 +27,15 @@ private getAuthHeaders(): HttpHeaders {
       'Accept': 'application/json'
     });
   }
-    login(payload: LoginPayload): Observable<string> {
-      return this.http.post(this.authUrl, payload, {
+   login(payload: LoginPayload): Observable<TokenDto> {
+      return this.http.post<TokenDto>(this.authUrl, payload, {
         headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-        responseType: 'text' 
-      }).pipe(
-        map(response => {
-          return response;
-    }),
-        catchError(this.handleError)
-      );
-  }
+        withCredentials: false
+        }).pipe(
+        map((response: TokenDto) => response) // Enforce return type
+        );
+    }
+
   registerUser(userData: any): Observable<any> {
     return this.http.post(this.registerUrl, userData);
   }
@@ -71,5 +69,11 @@ private getAuthHeaders(): HttpHeaders {
   saveUserId(userId: string): void {
     localStorage
     .setItem('userId', userId);   
+  }
+  saveUserName(userName: string): void {
+    localStorage.setItem('userName', userName);
+  }
+  getUserName(): string | null {
+    return localStorage.getItem('userName');
   }
 }

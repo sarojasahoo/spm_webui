@@ -104,7 +104,7 @@ export class StocklistComponent implements OnInit {
     });
   }
   // Remove stock from the user's stock list
-  removeFromStockList(stockId: number): void {
+  removeFromStockList(stockId: string): void {
     this.stockService.removeStockFromList(stockId).subscribe(
       () => {
         this.loadStockList(); // Refresh stock list after removal
