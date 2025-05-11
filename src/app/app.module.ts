@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
@@ -22,7 +22,14 @@ import { MatInputModule } from '@angular/material/input';
 import { RegisterComponent } from './pages/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { CsrfInterceptor } from './guards/csrf.interceptor';
+import { APP_INITIALIZER } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
+
+export function csrfInitFactory(http: HttpClient) {
+  return () => http.get(`${environment.apiEndpoints.csrf}`, { withCredentials: true }).toPromise();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +58,19 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
 
-  providers: [CookieService],
+  providers: [ CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CsrfInterceptor,
+      multi: true
+    }
+  ,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: csrfInitFactory,
+      deps: [HttpClient],
+      multi: true
+    }],
   bootstrap: [AppComponent],
   entryComponents: [TradeDialogComponent]
 })

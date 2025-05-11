@@ -25,16 +25,9 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> {
-    const token = localStorage.getItem('access_token');
-    if (!token) {
-      return of(this.router.createUrlTree(['/login']));
-    }
+    
 
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-
-    return this.http.get(this.tokenValidationUrl, { headers })
+    return this.http.get(this.tokenValidationUrl, { withCredentials: true })
       .pipe(
         map(response => {
           // if the response is valid, return true; otherwise, redirect to login

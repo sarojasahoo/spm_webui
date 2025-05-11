@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { TokenDto } from 'src/app/model/token.dto';
 
@@ -18,6 +18,7 @@ export interface LoginPayload {
 export class AuthService {
     // Update this URL to match your backend authentication endpoint.
     private loginUrl = environment.apiEndpoints.login;
+    private logoutUrl = environment.apiEndpoints.logout;
     private registerUrl = environment.apiEndpoints.register;
     
     constructor(private http: HttpClient) {}
@@ -26,7 +27,7 @@ export class AuthService {
    login(payload: LoginPayload): Observable<TokenDto> {
       return this.http.post<TokenDto>(this.loginUrl, payload, {
         headers: { 'Content-Type': 'application/json' },
-        withCredentials: false
+        withCredentials: true
         }).pipe(
         map((response: TokenDto) => response) // Enforce return type
         );
@@ -35,7 +36,16 @@ export class AuthService {
   registerUser(userData: any): Observable<any> {
     return this.http.post(this.registerUrl, userData);
   }
+  logout(): Observable<void> {
+  return this.http.post<void>(this.logoutUrl, {}, { withCredentials: true }).pipe(
+    tap(() => {
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userName');
+    })
+  );
+}
 
+  
   private handleError(error: HttpErrorResponse) {
       let errorMessage = 'Unknown error!';
       if (error.error instanceof ErrorEvent) {
@@ -49,14 +59,7 @@ export class AuthService {
       return throwError(() => new Error(errorMessage));
   }
 
-  // Browser handling this , no need to store it in local storage.
-  saveToken(token: string): void {
-    localStorage.setItem('access_token', token);
-  }
 
- getToken(): string | null {
-    return localStorage.getItem('access_token');
-  }
 
   getLoggedInUserId(): string | null {
     return localStorage.getItem('userId');

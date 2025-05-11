@@ -34,7 +34,6 @@ export class LoginComponent {
      this.authService.login(credentials).subscribe({
       next: tokenDto => {
         if (tokenDto) {
-          this.authService.saveToken(tokenDto.access_token.trim());
           this.authService.saveUserId(tokenDto.userId.trim());
           this.authService.saveUserName(tokenDto.userName.trim());
           this.router.navigate(['/dashboard']);

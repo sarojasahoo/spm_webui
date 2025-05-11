@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class DashboardComponent implements OnInit {
   userId: string | null = null;
   userName: string | null = null;
-  constructor(private route :Router,private authService: AuthService) {}
+  constructor(private router :Router,private authService: AuthService) {}
 
   @ViewChild('tabGroup') tabGroup!: MatTabGroup;
   @ViewChild(StocklistComponent) stocklistComponent!: StocklistComponent;
@@ -27,9 +27,14 @@ export class DashboardComponent implements OnInit {
      this.userName = this.authService.getUserName();
   }
   logout() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userName');
-    this.route.navigate(['/login']);
+    this.authService.logout().subscribe({
+     next: () => {
+       this.router.navigate(['/login']);
+    },
+    error: err => {
+      console.error('Logout failed', err);
+      this.router.navigate(['/login']); // Fallback redirect
+    }
+    });
   }
 }

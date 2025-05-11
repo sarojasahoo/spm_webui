@@ -4,11 +4,12 @@ const baseUrl = 'http://localhost:8080/api';
 export const environment = {
   production: false,
   apiEndpoints: {
-
+    csrf          :`${baseUrl}/csrf`,
     login        : `${baseUrl}/auth/login`,
+    logout        : `${baseUrl}/auth/logout`,
     register    : `${baseUrl}/user/register`,
     tokenValidation : `${baseUrl}/auth/token`,
-
+    
     stockListBaseUrl     : `${baseUrl}/stocksList`,
     stockListUsers    : `${baseUrl}/stocksList/users`,
 
