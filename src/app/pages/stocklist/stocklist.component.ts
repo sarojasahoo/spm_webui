@@ -30,7 +30,7 @@ export class StocklistComponent implements OnInit {
   popupMessage = '';
   selectedSymbol: any = null;
   transactionType: 'search' | 'buy' | 'sell' | null = 'search';
-
+  successMessage: string | null = null;
 
 
   ngOnInit(): void {
@@ -122,7 +122,11 @@ export class StocklistComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Trade executed successfully!');
+        this.successMessage = 'Trade executed successfully!';
+      setTimeout(() => {
+        this.successMessage = null;
+      }, 3000); // 3 seconds
+        
       }
     });
   }

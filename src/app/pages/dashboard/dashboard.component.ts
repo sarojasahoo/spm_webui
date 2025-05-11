@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
      this.userId = this.authService.getLoggedInUserId(); 
-    this.userName = this.authService.getUserName();
+     this.userName = this.authService.getUserName();
   }
   logout() {
     localStorage.removeItem('access_token');

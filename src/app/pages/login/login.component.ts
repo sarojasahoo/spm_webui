@@ -31,7 +31,6 @@ export class LoginComponent {
       userId   : this.loginForm.get('userId')?.value,
       password : this.loginForm.get('password')?.value
     };
-    localStorage.setItem('userId', this.loginForm.get('userId')?.value);
 
      this.authService.login(credentials).subscribe({
       next: tokenDto => {
