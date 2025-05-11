@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService, LoginPayload } from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -16,8 +15,8 @@ export class LoginComponent {
   userId: string = '';
   password: string = '';
   errorMessage: string = '';
-  constructor(private http: HttpClient,
-              private authService: AuthService, private router: Router, private fb: FormBuilder) {
+  constructor( private authService: AuthService,
+               private router: Router, private fb: FormBuilder) {
 
                 this.loginForm = this.fb.group({
                   userId: ['', [Validators.required]],

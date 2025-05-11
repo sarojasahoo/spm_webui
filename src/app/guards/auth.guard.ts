@@ -9,6 +9,13 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * AuthGuard is an Angular guard that checks if the user is authenticated
+ * before allowing access to certain routes.
+ * It checks for a valid token in local storage and validates it with the server.
+ */
+
 export class AuthGuard implements CanActivate {
   private tokenValidationUrl = environment.apiEndpoints.tokenValidation;
 

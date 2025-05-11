@@ -17,18 +17,14 @@ export interface LoginPayload {
 
 export class AuthService {
     // Update this URL to match your backend authentication endpoint.
-    private authUrl = environment.apiEndpoints.login;
+    private loginUrl = environment.apiEndpoints.login;
     private registerUrl = environment.apiEndpoints.register;
+    
     constructor(private http: HttpClient) {}
-private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('access_token');
-    return new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/json'
-    });
-  }
+
+
    login(payload: LoginPayload): Observable<TokenDto> {
-      return this.http.post<TokenDto>(this.authUrl, payload, {
+      return this.http.post<TokenDto>(this.loginUrl, payload, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: false
         }).pipe(
@@ -67,8 +63,7 @@ private getAuthHeaders(): HttpHeaders {
   }
 
   saveUserId(userId: string): void {
-    localStorage
-    .setItem('userId', userId);   
+    localStorage.setItem('userId', userId);   
   }
   saveUserName(userName: string): void {
     localStorage.setItem('userName', userName);
